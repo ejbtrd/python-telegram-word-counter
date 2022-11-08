@@ -15,6 +15,9 @@ for message in chat["messages"]:
             for word in entity["text"].strip().split(" "):
                 word = word.lower()
 
+                if word.startswith("http://") or word.startswith("https://"):
+                    continue
+
                 try:
                     prev = words[word]
                 except KeyError:
